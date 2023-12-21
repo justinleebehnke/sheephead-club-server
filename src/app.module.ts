@@ -16,6 +16,11 @@ import { JwtModule } from '@nestjs/jwt';
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: process.env.TYPEORM_SYNC === 'true',
       logging: process.env.TYPEORM_LOGGING === 'true',
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
     }),
     UserModule,
     JwtModule,
